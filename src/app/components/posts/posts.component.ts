@@ -22,7 +22,8 @@ export class PostsComponent implements OnInit {
   constructor(private postService: PostService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.activatedRoute.params.subscribe(value => {
     console.log(value)})
-    this.id = router.getCurrentNavigation()?.extras.state as any;
+    console.log(this.activatedRoute.parent?.params);
+    this.id = this.router.getCurrentNavigation()?.extras.state as any;
     console.log(this.id.id)
   }
   ngOnInit(): void {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {UserDetailsComponent} from "../../components/user-details-compon/user-details.component";
+import {UserDetailsComponent} from "../../components/user-details/user-details.component";
 import {ActivatedRoute, Router, RouterOutlet} from "@angular/router";
 import {IUser} from "../../interfaces";
 import {state} from "@angular/animations";
