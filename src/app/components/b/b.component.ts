@@ -14,14 +14,14 @@ export class BComponent {
   }
 
   inc():void {
-    this.counterService.inc();
+    this.counterService.counter.next(this.counterService.counter.value + 1);
   }
 
   dec(): void {
-    this.counterService.dec()
+    this.counterService.counter.next(this.counterService.counter.value - 1);
   }
 
   reset(): void {
-    this.counterService.reset()
+    this.counterService.counter.next(0);
   }
 }
