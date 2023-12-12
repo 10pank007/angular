@@ -2,11 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {PostService} from "../../services";
 import {IPost} from "../../interfaces";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-post-details',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf
+  ],
   templateUrl: './post-details.component.html',
   styleUrl: './post-details.component.css'
 })

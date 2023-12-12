@@ -19,17 +19,17 @@ import {CommentComponent} from "../comment/comment.component";
   styleUrl: './comments.component.css'
 })
 export class CommentsComponent implements OnInit{
-  id: {id: string};
   comments: IComment []
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private commentService: CommentService) {
-    this.activatedRoute.params.subscribe(value => console.log(value));
-    this.id = this.router.getCurrentNavigation()?.extras.state as any;
-    console.log(this.id)
+    this.activatedRoute.parent?.params.subscribe(({id}) => {
+      this.commentService.getAllByPostId(id).subscribe(value => this.comments = value);
+    });
+
+
   }
 
   ngOnInit(): void {
-    this.commentService.getAllByPostId(+this.id.id).subscribe(value => this.comments = value);
-    console.log(this.comments)
+
   }
 
 }

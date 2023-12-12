@@ -16,19 +16,16 @@ import {NgForOf} from "@angular/common";
   styleUrl: './posts.component.css'
 })
 export class PostsComponent implements OnInit {
-  id: {id: string}
   posts: IPost[]
 
   constructor(private postService: PostService, private activatedRoute: ActivatedRoute, private router: Router) {
-    this.activatedRoute.params.subscribe(value => {
-    console.log(value)})
-    console.log(this.activatedRoute.parent?.params);
-    this.id = this.router.getCurrentNavigation()?.extras.state as any;
-    console.log(this.id.id)
+    this.activatedRoute.parent?.params.subscribe(({id}) => {
+      this.postService.getAll(id).subscribe(value => this.posts = value);
+    })
+
   }
   ngOnInit(): void {
-    this.postService.getAll(+this.id.id).subscribe(value => this.posts = value)
-    console.log(this.posts, this.id)
+
   }
 
 }
