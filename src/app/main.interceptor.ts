@@ -1,12 +1,5 @@
-import {
-  HttpErrorResponse,
-  HttpEvent,
-  HttpHandler,
-  HttpInterceptor,
-  HttpInterceptorFn,
-  HttpRequest
-} from '@angular/common/http';
-import {inject, Injectable} from "@angular/core";
+import {HttpErrorResponse, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {Injectable} from "@angular/core";
 import {AuthService} from "./services/auth.service";
 import {BehaviorSubject, catchError, filter, Observable, switchMap, take, throwError} from "rxjs";
 import {urls} from "./constants";
